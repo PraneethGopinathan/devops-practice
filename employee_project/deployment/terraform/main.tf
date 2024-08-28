@@ -1,40 +1,29 @@
 # # S3
-module "s3" {
-  source     = "./s3"
-  name       = var.s3_bucket_name
-  managed_by = var.managed_by
-  project    = var.project
-}
+# module "s3" {
+#   source     = "./s3"
+#   name       = var.s3_bucket_name
+#   managed_by = var.managed_by
+#   project    = var.project
+# }
 
 # VPC
 module "vpc" {
-  source           = "./vpc"
-  managed_by       = var.managed_by
-  project          = var.project
-  region           = var.region
-  eks_cluster_name = var.eks_cluster_name
+  source     = "./vpc"
+  managed_by = var.managed_by
+  project    = var.project
+  region     = var.region
 }
 
-# # EKS
-# module "eks" {
-#   source                   = "./eks"
-#   managed_by               = var.managed_by
-#   project                  = var.project
-#   public_1_id              = module.vpc.public_1_subnet_id
-#   public_2_id              = module.vpc.public_2_subnet_id
-#   iam_name                 = var.eks_iam_name
-#   cluster_name             = var.eks_cluster_name
-#   cluster_version          = var.eks_cluster_version
-#   node_group_iam_name      = var.eks_node_group_iam_name
-#   node_group_name          = var.eks_node_group_name
-#   node_group_desired_size  = var.eks_node_group_desired_size
-#   node_group_max_size      = var.eks_node_group_max_size
-#   node_group_min_size      = var.eks_node_group_min_size
-#   node_group_ami_type      = var.eks_node_group_ami_type
-#   node_group_instance_type = var.eks_node_group_instance_type
-#   node_group_capacity_type = var.eks_node_group_capacity_type
-#   node_group_disk_size     = var.eks_node_group_disk_size
-# }
+# ECS & LB
+module "ecs-lb" {
+  source             = "./ecs-lb"
+  region             = var.region
+  vpc_id             = module.vpc.vpc_id
+  public_1_subnet_id = module.vpc.public_1_subnet_id
+  public_2_subnet_id = module.vpc.public_2_subnet_id
+  container_image    = var.ecs_container_image
+  app_name           = var.ecs_app_name
+}
 
 # # RDS
 # module "rds" {

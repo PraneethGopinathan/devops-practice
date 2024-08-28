@@ -6,10 +6,10 @@ resource "aws_subnet" "public_1" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name                                            = "public-${var.region}a"
-    "kubernetes.io/cluster/${var.eks_cluster_name}" = "shared"
-    "kubernetes.io/role/elb"                        = 1
-    managed_by                                      = var.managed_by
+    Name = "public-${var.region}a"
+    # "kubernetes.io/cluster/${var.eks_cluster_name}" = "shared"
+    "kubernetes.io/role/elb" = 1
+    managed_by               = var.managed_by
   }
 }
 
@@ -21,10 +21,10 @@ resource "aws_subnet" "public_2" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name                                            = "public-${var.region}b"
-    "kubernetes.io/cluster/${var.eks_cluster_name}" = "shared"
-    "kubernetes.io/role/elb"                        = 1
-    managed_by                                      = var.managed_by
+    Name = "public-${var.region}b"
+    # "kubernetes.io/cluster/${var.eks_cluster_name}" = "shared"
+    "kubernetes.io/role/elb" = 1
+    managed_by               = var.managed_by
 
   }
 }
@@ -35,10 +35,10 @@ resource "aws_subnet" "private_1" {
   cidr_block        = "10.0.128.0/18"
   availability_zone = "${var.region}a"
   tags = {
-    Name                                            = "private-${var.region}a"
-    "kubernetes.io/cluster/${var.eks_cluster_name}" = "shared"
-    "kubernetes.io/role/internal-elb"               = 1
-    managed_by                                      = var.managed_by
+    Name = "private-${var.region}a"
+    # "kubernetes.io/cluster/${var.eks_cluster_name}" = "shared"
+    "kubernetes.io/role/internal-elb" = 1
+    managed_by                        = var.managed_by
 
   }
 }
@@ -49,10 +49,10 @@ resource "aws_subnet" "private_2" {
   cidr_block        = "10.0.192.0/18"
   availability_zone = "${var.region}b"
   tags = {
-    Name                                            = "private-${var.region}b"
-    "kubernetes.io/cluster/${var.eks_cluster_name}" = "shared"
-    "kubernetes.io/role/internal-elb"               = 1
-    managed_by                                      = var.managed_by
+    Name = "private-${var.region}b"
+    # "kubernetes.io/cluster/${var.eks_cluster_name}" = "shared"
+    "kubernetes.io/role/internal-elb" = 1
+    managed_by                        = var.managed_by
 
   }
 }

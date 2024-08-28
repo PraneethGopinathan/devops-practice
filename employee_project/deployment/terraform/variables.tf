@@ -3,7 +3,6 @@ variable "region" {
   description = "AWS region"
 }
 
-
 variable "project" {
   type        = string
   description = "Project name"
@@ -19,13 +18,6 @@ variable "s3_bucket_name" {
   type        = string
   description = "S3 Bucket name"
 }
-
-# ---------- EKS ----------
-variable "eks_cluster_name" {
-  type        = string
-  description = "EKS cluster name"
-}
-
 
 # ---------- RDS ----------
 variable "rds_allocated_storage" {
@@ -68,63 +60,12 @@ variable "rds_identifier" {
   description = "RDS database identifier name"
 }
 
-# ---------- EKS ----------
-variable "eks_iam_name" {
-  type        = string
-  description = "EKS IAM name"
+
+# ---------- ECS ----------
+variable "ecs_app_name" {
+  description = "Application name"
 }
 
-variable "eks_cluster_name" {
-  type        = string
-  description = "EKS cluster name"
-}
-
-variable "eks_node_group_iam_name" {
-  type        = string
-  description = "EKS node group IAM name"
-}
-
-variable "eks_node_group_name" {
-  type        = string
-  description = "EKS node group name"
-}
-
-variable "eks_node_group_desired_size" {
-  type        = string
-  description = "EKS node group desired size"
-}
-
-variable "eks_node_group_max_size" {
-  type        = string
-  description = "EKS node group max size"
-}
-
-variable "eks_node_group_min_size" {
-  type        = string
-  description = "EKS node group min size"
-}
-
-variable "eks_node_group_ami_type" {
-  type        = string
-  description = "EKS node group ami type"
-}
-
-variable "eks_node_group_capacity_type" {
-  type        = string
-  description = "EKS node group capacity type"
-}
-
-variable "eks_node_group_disk_size" {
-  type        = string
-  description = "EKS node group disk size"
-}
-
-variable "eks_node_group_instance_type" {
-  type        = string
-  description = "EKS node group instance type"
-}
-
-variable "eks_cluster_version" {
-  type        = string
-  description = "EKS node group instance type"
+variable "ecs_container_image" {
+  description = "Container image"
 }
