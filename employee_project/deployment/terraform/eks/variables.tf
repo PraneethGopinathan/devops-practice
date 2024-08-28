@@ -1,0 +1,16 @@
+variable "project" {}
+variable "managed_by" {}
+variable "public_1_id" {}
+variable "public_2_id" {}
+variable "iam_name" {}
+variable "cluster_name" {}
+variable "cluster_version" {}
+variable "node_group_iam_name" {}
+variable "node_group_name" {}
+variable "node_group_desired_size" {}
+variable "node_group_max_size" {}
+variable "node_group_min_size" {}
+variable "node_group_ami_type" {}
+variable "node_group_capacity_type" {}
+variable "node_group_disk_size" {}
+variable "node_group_instance_type" {}
