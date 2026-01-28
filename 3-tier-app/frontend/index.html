@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🗳️ Voting System</h1>
+            <p>Create polls and vote in real-time</p>
+        </header>
+
+        <!-- Create Poll Section -->
+        <section class="create-poll-section">
+            <h2>Create a New Poll</h2>
+            <div class="form-group">
+                <label for="poll-question">Poll Question:</label>
+                <input type="text" id="poll-question" placeholder="What's your favorite programming language?">
+            </div>
+            <div class="form-group">
+                <label>Options (minimum 2):</label>
+                <div id="options-container">
+                    <input type="text" class="option-input" placeholder="Option 1">
+                    <input type="text" class="option-input" placeholder="Option 2">
+                </div>
+                <button type="button" id="add-option-btn" class="btn-secondary">+ Add Option</button>
+            </div>
+            <button id="create-poll-btn" class="btn-primary">Create Poll</button>
+        </section>
+
+        <!-- Active Polls Section -->
+        <section class="polls-section">
+            <div class="section-header">
+                <h2>Active Polls</h2>
+                <button id="refresh-polls-btn" class="btn-secondary">↻ Refresh</button>
+            </div>
+            <div id="polls-container">
+                <p class="loading">Loading polls...</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
